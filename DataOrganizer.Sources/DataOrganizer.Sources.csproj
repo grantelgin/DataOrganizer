@@ -8,4 +8,8 @@
     <None Include="SourceAdapter.LocalDrive.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DataOrganizer.Common\DataOrganizer.Common.csproj" />
+  </ItemGroup>
+
 </Project>
