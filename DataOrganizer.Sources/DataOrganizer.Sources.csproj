@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="SourceAdapter.Dropbox.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="SourceAdapter.Dropbox.cs" />
     <None Include="SourceAdapter.LocalDrive.cs" />
   </ItemGroup>
 

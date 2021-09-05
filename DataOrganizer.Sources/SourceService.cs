@@ -9,7 +9,28 @@ namespace DataOrganizer.Sources
     public class SourceService
     {
         private Dictionary<long, ISourceAdapter> mdictSourceAdapters = new Dictionary<long, ISourceAdapter>();
+        public int ServiceCount { get { return mdictSourceAdapters.Keys.Count; } }
+        public int FolderCount { get; private set; }
+        public int FileCount { get; private set; }
+
         
+
+        public SourceService()
+        {
+            LoadLocalDrives();
+            LoadFiles();
+        }
+
+        private void LoadFiles()
+        {
+             foreach (var item in mdictSourceAdapters)
+            {
+                item.Value.All();
+                FileCount += item.Value.FileCount;
+                FolderCount += item.Value.FolderCount;
+            }
+        }
+
         private void LoadLocalDrives()
         {
             DriveInfo[] drives = DriveInfo.GetDrives();
